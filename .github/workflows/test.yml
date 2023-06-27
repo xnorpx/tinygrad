@@ -43,6 +43,8 @@ jobs:
       run: pylint tinygrad/
     - name: Run mypy
       run: mypy tinygrad/ --ignore-missing-imports --check-untyped-defs --explicit-package-bases --warn-unreachable
+    - name: Whitespace
+      run: git diff-tree --check origin/master HEAD
 
   testcpu:
     name: CPU Tests
