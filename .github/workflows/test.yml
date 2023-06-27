@@ -25,11 +25,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-    - name: Whitespace
-      run: |
-        git diff-tree --check origin/master HEAD
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Whitespace
+        run: |
+          git diff-tree --check origin/master HEAD
     # - name: Set up Python 3.8
     #   uses: actions/setup-python@v4
     #   with:
